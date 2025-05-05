@@ -10,7 +10,6 @@ async function testimonial() {
     } catch (error) {
         console.log('something went wrong')
     }
-    
 }
 
 testimonial()
