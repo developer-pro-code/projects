@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color changer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .navigation{
+            width: 100%;
+            padding: 1rem;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background-color: grey;
+        }
+        button{
+            border: none;
+        }
+        .navigation button{
+            padding-block:0.5rem;
+            padding-inline: 1rem;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        .container{
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+        #gray{
+            background-color: gray;
+        }
+        #white{
+            background-color: white;
+        }
+        #blue{
+            background-color: blue;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        .child_containers{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <button><a href="color_changer.html">Home</a></button>
+        <button><a href="https://www.youtube.com/@chaiaurcode" target="_blank">Youtube Channel</a></button>
+    </div>
+
+    <div class="container">
+        <h1>Color Scheme Switcher</h1>
+        <div class="child_containers">
+            <button><div id="gray" class="box"></div></button>
+            <button><div id="white" class="box"></div></button>
+            <button><div id="blue" class="box"></div></button>
+            <button><div id="yellow" class="box"></div></button>
+        </div>
+        <h2>Try clicking one of the containers to change the color of the webpage.</h2>
+    </div>
+</body>
+
+<script src="color_change.js"></script>
+
+</html>

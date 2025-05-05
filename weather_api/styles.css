@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+sasaram h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    background: #ffffffdd;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    align-items: center;
+}
+
+label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+input {
+    padding: 10px 15px;
+    width: 100%;
+    border: 2px solid #90caf9;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #42a5f5;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #42a5f5;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #1e88e5;
+}
+
+div {
+    margin-top: 25px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+div h1 {
+    font-size: 40px;
+    color: #1565c0;
+}
+
+a {
+    margin-top: 20px;
+}
+
+a img {
+    width: 150px;
+    opacity: 0.8;
+}
+
+a img:hover {
+    opacity: 1;
+}

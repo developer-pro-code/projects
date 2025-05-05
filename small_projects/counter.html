@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Counter app</h1>
+    <div id="counter">
+        <p id="sub_counter"></p>
+    </div>
+    <button type="button" id="start">Start</button>
+    <button type="button" id="stop">Stop</button>
+</body>
+<script>
+    const counter = document.getElementById('counter');
+    const sub_counter = document.getElementById('sub_counter');
+    const start_counter = document.getElementById('start');
+    const stop_counter = document.getElementById('stop');
+
+    let count = 0;
+    let interval_id;
+
+    function counter_count() {
+        count++;
+        sub_counter.innerHTML = count;
+    }
+
+    start_counter.addEventListener('click', () => {
+        if (!interval_id) {
+            interval_id = setInterval(counter_count, 1000);
+        }
+    });
+
+    stop_counter.addEventListener('click', () => {
+        clearInterval(interval_id);
+        interval_id = null;
+    })
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+let counter = 0;
+let marked = 0
+
+//function to strikethrough the element
+function strikethrough(f){
+    const rmbtn = document.getElementById(`${f.target.id}`);
+    rmbtn.parentElement.firstChild.innerHTML = `<del>${textBox.value}</del>`;
+    rmbtn.hidden = true
+    document.getElementById(`rmbtn${marked}`).hidden = false
+    marked++
+}
+
+//undo button
+// function undo(f){
+//     const rmbtn = document.getElementById(`${f.target.id}`);
+//     rmbtn.outerHTML = `<button type=button class=rmbtn id=undo${marked}>Undo</button>`;
+//     marked++
+// }
+
+//redo button
+function redo(f){
+
+}
+
+//unstrike the element
+function unstrikethrough(f) {
+    const rmbtn = document.getElementById(`${f.target.id}`);
+    rmbtn.parentElement.firstChild.innerHTML = `<span>${textBox.value}</span>`;
+}
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    
+    if(textBox.value){
+        const newDiv = document.createElement('div');
+        newDiv.setAttribute('id', 'newdiv')
+        newDiv.innerHTML = `<span>${textBox.value}</span><button type=button id=rmbtn${counter} class=rmbtn>Done</button><button type=button id=rmbtn${marked} class=rmbtn>Undo</button>`;
+        form.insertBefore(newDiv, createdBox)
+        counter++
+    }
+    document.getElementById(`rmbtn${marked}`).hidden = true
+    // marked++
+
+})
+
+form.addEventListener('click', (f)=>{
+    if(f.target.tagName === 'BUTTON' && f.target.textContent === 'Done'){
+        strikethrough(f)
+        // undo(f)
+    }
+    // if(f.target.tagName === 'BUTTON' && f.target.textContent === 'Undo'){
+    //     unstrikethrough(f)
+    // }
+})
