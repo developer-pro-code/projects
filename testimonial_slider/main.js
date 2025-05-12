@@ -20,7 +20,7 @@ async function testimonial() {
                 index++
             }
         }
-        intervalId = setInterval(logging, 5000);
+        intervalId = setInterval(logging, 5000)
         
     } catch (error) {
         console.log('something went wrong')
