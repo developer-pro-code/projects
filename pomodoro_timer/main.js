@@ -17,6 +17,8 @@ const updateTime = () => {
     if (minutesLeft == 0 && secondsLeft == 0) {
         clearInterval(intervalId);
         intervalId = null;
+        alert("Your session has completed!!")
+        resetTimer()
     }
 };
 
