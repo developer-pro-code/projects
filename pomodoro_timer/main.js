@@ -1,3 +1,7 @@
+import { inject } from '@vercel/analytics';
+
+inject()
+
 const start = document.getElementById('start');
 const stop = document.getElementById('stop');
 const reset = document.getElementById('reset');
