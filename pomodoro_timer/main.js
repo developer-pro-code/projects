@@ -1,7 +1,3 @@
-import { inject } from '@vercel/analytics';
-
-inject()
-
 const start = document.getElementById('start');
 const stop = document.getElementById('stop');
 const reset = document.getElementById('reset');
@@ -21,8 +17,8 @@ const updateTime = () => {
     if (minutesLeft == 0 && secondsLeft == 0) {
         clearInterval(intervalId);
         intervalId = null;
-        alert("Your session has completed!!")
-        resetTimer()
+        alert("Your session has completed!!");
+        resetTimer();
     }
 };
 
@@ -45,5 +41,5 @@ const resetTimer = () => {
 };
 
 start.addEventListener('click', startTimer);
-stop.addEventListener('click', stopTimer)
-reset.addEventListener('click', resetTimer)
+stop.addEventListener('click', stopTimer);
+reset.addEventListener('click', resetTimer);
