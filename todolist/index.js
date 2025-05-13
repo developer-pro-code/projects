@@ -17,7 +17,10 @@ function loadTasks() {
         form.insertBefore(newDiv, createdBox);
         document.getElementById(`rembtn${marked}`).hidden = true;
         if (task.completed) {
-            mark({ target: { id: `rmbtn${counter}` } });
+            const span = newDiv.querySelector('span');
+            span.innerHTML = `<del>${task.text}</del>`;
+            document.getElementById(`rmbtn${counter}`).hidden = true;
+            document.getElementById(`rembtn${marked}`).hidden = false;
         }
         counter++;
         marked++;
