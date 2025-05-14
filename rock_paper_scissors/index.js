@@ -17,7 +17,6 @@ form.addEventListener('submit',(e)=>{
     const index = Math.floor((Math.random()*3))
     const computerChoice = computerChoices[index]
 
-    //todo: write the logic for score
     if ((e.submitter.id === 'rock' && computerChoice === 'paper') || (e.submitter.id === 'paper' && computerChoice === 'scissors') || (e.submitter.id === 'scissors' && computerChoice === 'rock')) {
         computerScore++
     }else if((e.submitter.id === 'rock' && computerChoice === 'scissors') || (e.submitter.id === 'paper' && computerChoice === 'rock') || (e.submitter.id === 'scissors' && computerChoice === 'paper')){
