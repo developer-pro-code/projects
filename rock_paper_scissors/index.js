@@ -22,9 +22,7 @@ form.addEventListener('submit',(e)=>{
         computerScore++
     }else if((e.submitter.id === 'rock' && computerChoice === 'scissors') || (e.submitter.id === 'paper' && computerChoice === 'rock') || (e.submitter.id === 'scissors' && computerChoice === 'paper')){
         userScore++
-    } 
-    // console.log(computerChoice)
-    // console.log(e.submitter.id)
+    }
     result.innerHTML = `Your score: ${userScore}` 
     compResult.innerHTML = `Computer score: ${computerScore}`
 })
