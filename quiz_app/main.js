@@ -81,7 +81,6 @@ const displayQues = (queNumber) => {
     answers.appendChild(div);
   });
 };
-
 //calling the displayQues function
 displayQues(quesNumber);
 
