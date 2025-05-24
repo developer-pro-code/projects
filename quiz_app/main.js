@@ -54,80 +54,80 @@ let wrongAnswers = 0;
 let gameScore = 0;
 let answerChosen = "";
 
-const playGame = () => {
-  //checking for correct and wrong answers function
-  //--FIXME: UPDATE THE SCORE VARIABLE AND MAKE SURE IT ONLY UPDATES ONCE PER CHOICE 
-  const checkAnswer = () => {
-    answers.addEventListener('click', (e) => {
+//checking for correct and wrong answers function
+//--FIXME: UPDATE THE SCORE VARIABLE AND MAKE SURE IT ONLY UPDATES ONCE PER CHOICE 
+const checkAnswer = () => {
+  answers.addEventListener('click', (e) => {
+    if (e.target.tagName === "INPUT" && e.target.type === "radio") {
       answerChosen = e.target.value;
-    });
-  };
-
-  //display the question
-  const displayQues = (queNumber) => {
-    question.textContent = ""
-    answers.innerHTML = ""
-    
-    question.textContent = data[queNumber].ques;
-    data[queNumber].options.forEach((option) => {
-      const div = document.createElement('div');
-      const element = document.createElement('input');
-      const optionVal = document.createTextNode(`${option.answer}`);
-      element.setAttribute('type', 'radio');
-      element.setAttribute('name', 'options');
-      element.value = option.isTrue;
-      div.appendChild(element);
-      div.appendChild(optionVal);
-      answers.appendChild(div);
-    });
-  };
-
-  //calling the displayQues function
-  displayQues(quesNumber);
-  //calling the checkAnswer function
-  checkAnswer();
-
-
-  //adding event listener to the submit button and related functionality
-  submit.addEventListener('click', () => {
-    if (answerChosen == "true") rightAnswers++;
-    else wrongAnswers++;
-    if (quesNumber == data.length - 1) {
-      correct.textContent = `Correct: ${rightAnswers}`;
-      wrong.textContent = `Wrong: ${wrongAnswers}`;
-      gameScore = 10 * rightAnswers + (-0.25) * wrongAnswers;
-      score.textContent = `Score: ${gameScore}`;
-      game.style.display = 'none';
-      results.style.display = 'flex';
-    } else {
-      quesNumber++;
-      const divs = Array.from(answers.querySelectorAll('div'));
-      divs.forEach((div) => div.remove());
-      displayQues(quesNumber);
     }
   });
 };
+checkAnswer();
+
+
+//display the question
+const displayQues = (queNumber) => {
+  question.textContent = data[queNumber].ques;
+  data[queNumber].options.forEach((option) => {
+    const div = document.createElement('div');
+    const element = document.createElement('input');
+    const optionVal = document.createTextNode(`${option.answer}`);
+    element.setAttribute('type', 'radio');
+    element.setAttribute('name', 'options');
+    element.value = option.isTrue;
+    div.appendChild(element);
+    div.appendChild(optionVal);
+    answers.appendChild(div);
+  });
+};
+
+//calling the displayQues function
+displayQues(quesNumber);
 
 //play again function
 const playAgain = () => {
   play_again.addEventListener('click', () => {
-    quesNumber = 0
-    rightAnswers = 0
-    wrongAnswers = 0
-    gameScore = 0
-    answerChosen = ""
+    quesNumber = 0;
+    rightAnswers = 0;
+    wrongAnswers = 0;
+    gameScore = 0;
+    answerChosen = "";
 
     correct.textContent = '';
     wrong.textContent = '';
     score.textContent = '';
     answers.innerHTML = '';
 
-    results.style.display = 'none'
-    game.style.display = 'flex'
+    results.style.display = 'none';
+    game.style.display = 'flex';
 
-    playGame()
+    displayQues(quesNumber);
   });
+  //adding event listener to the submit button and related functionality
 };
 
-playGame()
-playAgain()
+submit.addEventListener('click', () => {
+  if(answerChosen == undefined || answerChosen == ""){
+    alert("please choose an option")
+    return
+  }
+  if (answerChosen == "true") rightAnswers++;
+  else wrongAnswers++;
+  answerChosen = ""
+  if (quesNumber == data.length - 1) {
+    correct.textContent = `Correct: ${rightAnswers}`;
+    wrong.textContent = `Wrong: ${wrongAnswers}`;
+    gameScore = 10 * rightAnswers + (-0.25) * wrongAnswers;
+    score.textContent = `Score: ${gameScore}`;
+    game.style.display = 'none';
+    results.style.display = 'flex';
+  } else {
+    quesNumber++;
+    const divs = Array.from(answers.querySelectorAll('div'));
+    divs.forEach((div) => div.remove());
+    displayQues(quesNumber);
+  }
+});
+
+playAgain();
