@@ -97,7 +97,7 @@ fetch(apiUrl).then(res => res.json()).then(api_data => {
   //display the question
   const displayQues = (queNumber) => {
     question.textContent = `Q${quesNumber + 1}: ${data[queNumber].ques}`;
-    category.textContent = `Category=> ${data[queNumber].category}`;
+    category.textContent = `Category: ${data[queNumber].category}`;
     //calling the shuffleOptions function
     shuffleOptions();
     data[queNumber].options.forEach((option) => {
